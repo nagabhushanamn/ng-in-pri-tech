@@ -1,0 +1,17 @@
+<div class="card" *ngIf="cartLines.length>0">
+    <div class="card-header">item(s) in cart</div>
+    <div class="card-body">
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr *ngFor="let line of cartLines">
+                    <td>{{line.item.name}}</td>
+                    <td>{{line.item.price}}</td>
+                    <td>{{line.qty}}</td>
+                    <td>{{line.qty * line.item.price}}</td>
+                </tr>
+            </tbody>
+        </table>
+        Total : 0
+    </div>
+</div>
+<div *ngIf="cartLines.length===0">cart is empty</div>

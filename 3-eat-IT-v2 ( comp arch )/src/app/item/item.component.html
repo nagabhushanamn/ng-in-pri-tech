@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-3 col-sm-3 col-md-3">
+        <img class="img-fluid" [src]="item.imgPath" />
+    </div>
+    <div class="col-9 col-sm-9 col-md-9">
+        <h5>{{item.name}}</h5>
+        <h6>{{item.price}}</h6>
+        <button (click)="handleBuy($event)" *ngIf="item.canBuy" class="btn btn-sm btn-dark">buy</button>
+        &nbsp;<span class="badge badge-warning">{{qty}}</span>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a (click)="changeTab($event,1)" class="nav-link" [class.active]="isTabSelected(1)"
+                    href="/">description</a>
+            </li>
+            <li class="nav-item">
+                <a (click)="changeTab($event,2)" [ngClass]="{'nav-link':true,active:isTabSelected(2)}"
+                    href="/">ingre..</a>
+            </li>
+            <li class="nav-item">
+                <a (click)="changeTab($event,3)" [ngClass]="{'nav-link':true,active:isTabSelected(3)}"
+                    href="/">reviews</a>
+            </li>
+        </ul>
+        <div *ngIf="isTabSelected(1)">{{item.description}}</div>
+        <div *ngIf="isTabSelected(2)">Not Yet</div>
+        <div *ngIf="isTabSelected(3)">
+            <app-review *ngFor="let review of reviews" [value]="review">
+            </app-review>
+        </div>
+    </div>
+</div>
