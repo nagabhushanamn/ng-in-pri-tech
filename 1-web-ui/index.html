@@ -14,6 +14,29 @@
     <hr />
     <h1>eat-IT</h1>
     <hr />
+
+    <div id="box1" class="alert alert-danger">
+        <input id="inp1" type="number" onchange="handleChange(event)" />
+        <hr />
+        <span class="badge badge-primary" id="disp">0</span>
+    </div>
+
+    <script>
+        let inp1 = document.getElementById('inp1')
+        let disp = document.getElementById('disp')
+        let applnState = {
+            count: 0
+        }
+        // setInterval(() => {
+        //     applnState.count++
+        //     inp1.value = applnState.count
+        // }, 2000)
+        function handleChange(event) {
+            disp.innerHTML = event.target.value
+        }
+    </script>
+
+    <hr />
     <span class="badge badge-danger" id="time"></span>
     <hr />
     <button id="todos-btn" class="btn btn-dark">Load top 5 todos</button>
@@ -24,6 +47,8 @@
     <hr />
     <div class="alert alert-info">welcome to eat-IT!</div>
     <button class="btn btn-primary">Next ?</button>
+    <button class="btn btn-danger">Hide</button>
+    <button class="btn btn-success">Show</button>
     <script src="./index.js"></script>
 </body>
 

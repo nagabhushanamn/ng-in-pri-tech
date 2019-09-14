@@ -7,9 +7,19 @@ console.log("-index.js-");
 
 let box = document.querySelector('.alert');
 let nextBtn = document.querySelector('.btn-primary');
+let hideBtn = document.querySelector('.btn-danger');
+let showBtn = document.querySelector('.btn-success');
 
 nextBtn.addEventListener('click', e => {
     box.innerHTML = "Eat biryani";
+})
+
+hideBtn.addEventListener('click', e => {
+    box.style.display = 'none'
+})
+
+showBtn.addEventListener('click', e => {
+    box.style.display = ''
 })
 
 //-------------------------------------------
@@ -43,6 +53,7 @@ todosBtn.addEventListener('click', e => {
 // DOM + Timer API
 //-------------------------------------------
 
+let timeEle = document.getElementById('time');
 setInterval(() => {
-    document.getElementById('time').innerHTML = new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Kolkata' })
+    timeEle.innerHTML = new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Kolkata' })
 }, 1000)
