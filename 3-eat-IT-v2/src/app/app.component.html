@@ -2,9 +2,12 @@
 
     <app-navbar title="cap-eat-IT"></app-navbar>
     <hr />
+    <i class="fa fa-shopping-cart"></i>&nbsp;
+    <span class="badge badge-dark">{{cart.length}}</span>
+    item(s) in cart
     <hr />
     <div *ngFor="let i of items" class="list-group-item">
-        <app-item [value]="i"></app-item>
+        <app-item [value]="i" (buy)="addToCart($event)"></app-item>
     </div>
 
 </div>

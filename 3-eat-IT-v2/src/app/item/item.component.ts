@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-item',
@@ -7,8 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ItemComponent implements OnInit {
 
-  @Input('value') item;
-  currentTab = 1
+  @Input('value') item;  // props
+  currentTab = 1 // state
+  @Output() buy = new EventEmitter(); // event
 
   reviews = [
     { author: 'who@mail.com', stars: 5, body: 'sample-review-1' },
@@ -26,6 +27,9 @@ export class ItemComponent implements OnInit {
   }
   isTabSelected(tabIndex) {
     return this.currentTab === tabIndex;
+  }
+  handleBuy(event) {
+    this.buy.emit({ item: this.item })
   }
 
 }

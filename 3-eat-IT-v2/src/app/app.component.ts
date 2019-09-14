@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
 export class AppComponent {
 
   // state
+  cart = []
   items = [
     {
       id: 1,
@@ -26,5 +27,11 @@ export class AppComponent {
       description: 'non-veg is yummy & not always healthy'
     }
   ]
+
+  addToCart(event) {
+    let { item } = event;
+    this.cart.push(item)
+    console.log("adding to cart..");
+  }
 
 }
