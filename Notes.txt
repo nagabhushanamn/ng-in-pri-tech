@@ -209,7 +209,7 @@ modern solution:
          => child to parent ==>> via events   
 
 
-          -----------------------------------------
+   -----------------------------------------
 
 
       sometime we need components like 
@@ -221,6 +221,104 @@ modern solution:
 
 
       to create this type of custom components,
-      we r going to use react.js 'libray'
+      we r going to use react.js 'library'
 
-      -----------------------------------------
+   -----------------------------------------------
+
+   Typescript
+
+   -----------------------------------------------
+
+
+   Dev-Envi setup
+   ---------------
+
+      - javascript runtime ==> Node.js
+      - package manager    ==> npm | yarn
+      
+      - transpiler/compiler ==> babel/ts compiler / ..
+      - linting            ==> ES-lint
+      - module bundler     ==> webpack
+      - unit-testing       ==> jasmine
+      - test runner        ==> karma
+      - e2e test runner    ==> protractor
+      ...
+
+
+      cli tool
+         - angular-cli
+
+     ------------------------------------------------- 
+
+
+      > npm i -g @angular/cli
+
+      on workspace
+
+      > ng new <app-name>
+
+   ------------------------------------------------- 
+
+
+   angular project
+   ---------------
+
+
+      - Ng module(s)
+
+         => group of related directives,pipes ( UI ) & services ( Non-UI)
+
+
+   ------------------------------------------------- 
+
+   NG topics
+   ----------
+
+   A. directives
+   --------------
+
+      ==> direction(s), how to render UI 
+
+      3 types
+
+      1. component  ( directive + template + css )
+
+         => to bring new UI fragment
+
+      2. structural
+
+         => to change component's template structure
+
+         <element *directiveName="expression"></element>
+
+         e.g
+            ngIf
+            ngFor
+            ngSwitch
+            ...
+
+      3. attribute/property
+
+            ==> to change element's attributes
+
+         e.g
+            ngClass   
+
+
+   B. data binding
+   --------------
+
+      1. interpolation
+
+         syntax: 
+         {{expression}}
+
+      2. property-binding 
+
+         syntax: 
+         <element property1="static-value" [property2]="expression"/>   
+
+      3. event-binding
+
+         syntax: 
+         <element (event-name)="handler($event)"/>   
