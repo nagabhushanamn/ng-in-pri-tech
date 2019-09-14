@@ -1,0 +1,10 @@
+<div class="container">
+
+    <app-navbar title="cap-eat-IT"></app-navbar>
+    <hr />
+    <hr />
+    <div *ngFor="let i of items" class="list-group-item">
+        <app-item [value]="i"></app-item>
+    </div>
+
+</div>
