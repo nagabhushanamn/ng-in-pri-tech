@@ -1,0 +1,26 @@
+<div class="jumbotron">
+
+    <h4 #header>Todo</h4>
+ 
+    <hr />
+
+    
+    <div>
+        <ng-content></ng-content>
+    </div> 
+
+    <hr />
+
+    <hr />
+    <button (click)="addTodo()">Add Todo</button>
+    <button (click)="clearTodos()">clear todos</button>
+    <hr />
+
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let todo of todos">
+            <app-todo [value]="todo"></app-todo>
+        </li>
+    </ul>
+
+
+</div>

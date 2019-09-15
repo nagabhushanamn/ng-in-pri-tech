@@ -1,0 +1,29 @@
+<button *ngIf="!isOpen" (click)="toggleForm()" class="btn btn-sm btn-dark"><i class="fa fa-plus"></i></button>
+<div class="row" *ngIf="isOpen">
+    <div class="col-sm-8 col-md-8">
+        <div class="card">
+            <div class="card-header">Review Form</div>
+            <div class="card-body">
+                <form (submit)="handleSubmit($event)" [formGroup]="reviewForm">
+                    <div class="form-group">
+                        <label>stars</label>
+                        <select class="form-control" formControlName="stars">
+                            <option *ngFor="let n of [1,2,3,4,5]" [value]="n">{{n}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>author</label>
+                        <input formControlName="author" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>body</label>
+                        <textarea class="form-control" formControlName="body"></textarea>
+                    </div>
+                    <button class="btn btn-dark">submit</button>
+                    &nbsp;
+                    <button (click)="toggleForm()" type="button" class="btn btn-dark">cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

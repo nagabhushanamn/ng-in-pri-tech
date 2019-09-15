@@ -1,0 +1,102 @@
+<hr />
+formGroup model
+<hr />
+<pre>
+    {{customerForm.value|json}}
+</pre>
+<hr />
+formGroup status
+<hr />
+<pre>
+    is pristine : {{customerForm.pristine}}
+    is dirty    : {{customerForm.dirty}}
+
+    is valid    : {{customerForm.valid}}
+    is invalid  : {{customerForm.invalid}}
+
+    is touched  : {{customerForm.touched}}
+    is untouched: {{customerForm.untouched}}
+</pre>
+
+<hr />
+formControl e.g name-control's status
+<hr />
+
+<pre>
+    is pristine : {{customerForm.get('name').pristine}}
+    is dirty    : {{customerForm.get('name').dirty}}
+
+    is valid    : {{customerForm.get('name').valid}}
+    is invalid  : {{customerForm.get('name').invalid}}
+
+    is touched  : {{customerForm.get('name').touched}}
+    is untouched: {{customerForm.get('name').untouched}}
+</pre>
+
+<div class="row">
+    <div class="col-sm-6 col-md-6">
+        <div class="card">
+            <div class="card-header">Customer Form</div>
+            <div class="card-body">
+                <form (submit)="handleForm($event)" [formGroup]="customerForm">
+                    <div class="form-group">
+                        <label>username</label>
+                        <input formControlName="username" 
+                               class="form-control" />
+                        <!--       
+                        <div class="text-danger" 
+                             *ngIf="customerForm.get('username').errors?.required && customerForm.get('username').touched">username is required</div>
+                        <div class="text-danger" 
+                             *ngIf="customerForm.get('username').errors?.minlength && customerForm.get('username').touched"> &gt;= 3 chars</div>   
+                        --> 
+                        <div class="text-danger">{{errors['username']}}</div>             
+                    </div>
+                    <div class="form-group">
+                        <label>password</label>
+                        <input formControlName="password" 
+                               type="password" 
+                               class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input formControlName="name"
+                               class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Age</label>
+                        <input formControlName="age"
+                                class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input formControlName="email"
+                                class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile</label>
+                        <input formControlName="mobile"
+                                class="form-control" />
+                        <div class="text-danger" *ngIf="customerForm.get('mobile').errors?.required">please provide mobile number</div>   
+                    </div>
+                    <div class="form-group">
+                        <label>Notification</label>
+                        &nbsp;
+                        <input type="radio" 
+                               (click)="changeNoti('email')" 
+                               value="email" 
+                               formControlName="noti"
+                                /> &nbsp; Email
+                        <input type="radio" 
+                                (click)="changeNoti('sms')" 
+                                value="sms" 
+                                formControlName="noti"
+                                />   &nbsp; SMS      
+                    </div>
+                    <button (click)="loadCustomer()" type="button" class="btn btn-warning">load</button>
+                    &nbsp;
+                    <button class="btn btn-dark">submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

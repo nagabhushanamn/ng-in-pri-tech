@@ -1,0 +1,22 @@
+<div>
+
+    <div *ngFor="let item of items" class="list-group-item">
+        <app-item [value]="item"></app-item>
+    </div>
+
+    <!-- 
+    <hr />
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/items']">veg</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['non-veg']">non-veg</a>
+        </li>
+    </ul>
+    <hr />
+
+    <router-outlet></router-outlet> 
+    -->
+
+</div>
