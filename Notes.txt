@@ -279,8 +279,6 @@ modern solution:
 
       ==> direction(s), how to render UI 
 
-      3 types
-
       1. component  ( directive + template + css )
 
          => to bring new UI fragment
@@ -306,7 +304,7 @@ modern solution:
 
 
    B. data binding
-   --------------
+   ----------------
 
       1. interpolation
 
@@ -322,3 +320,47 @@ modern solution:
 
          syntax: 
          <element (event-name)="handler($event)"/>   
+
+   ------------------------------------------      
+
+
+
+
+Arch.. design issues   
+------------------------------------------
+
+===> state/model/ui-data is scattered across UI components
+===> state & state-change logic & network/service calls 
+     are tightly-coupled with UI components
+===> if same state is required in multiple components 
+     either we should duplicate that state in components 
+     or we should pass via input properties           
+===> Unit-Testing is very difficult in components
+===> we cant re-use same components across different pages 
+     or application
+
+
+solution:
+
+==> isolate common state & state change logic & n/wing logic 
+    from UI components
+
+
+How ?
+
+soln:
+
+using MVC pattern
+
+    --> bi-directional data-flow b/w view & state/model
+
+  
+soln in angular:
+
+   => using service objects
+
+
+features of NG services:
+
+   => by default, singleton
+   => dependents always get services via DI principle
